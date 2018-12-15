@@ -8,10 +8,15 @@ import ButtonStart from '../components/ButtonStart';
 const mapStateToProps = state => ({
   lives: state.game.lives,
   score: state.game.score,
-  isStarted: state.game.isStarted
+  isStarted: state.game.isStarted,
+  list: state.targets.list
 });
 
-const GameLayout = ({ isStarted, lives, score, dispatch }) => (
+const mapDispatchToProps = dispatch => ({
+  deleteTarget: (id) => { dispatch('TARGET_DELETE_REQUESTED', id) }
+})
+
+const GameLayout = ({ isStarted, lives, score, list, dispatch }) => (
   <div
     style={{
       position: 'fixed',
@@ -26,10 +31,17 @@ const GameLayout = ({ isStarted, lives, score, dispatch }) => (
     }}
   >
     {isStarted ? (
-      [<Info lives={lives} score={score} />, <Target x={50} y={30} value={2} />]
+      <React.Fragment>
+        <Info lives={lives} score={score} />
+        {
+          list.map(target => (
+            <Target x={target.x} y={target.y} value={target.value} onClick={() => dispatch({ type: 'TARGET_DELETE_REQUESTED', id: target.id})} />
+          ))
+        }
+      </React.Fragment>
     ) : (
-      <ButtonStart onClick={() => dispatch({ type: 'GAME_START' })} />
-    )}
+        <ButtonStart onClick={() => dispatch({ type: 'GAME_START_REQUESTED' })} />
+      )}
   </div>
 );
 
