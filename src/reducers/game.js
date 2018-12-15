@@ -11,6 +11,16 @@ const game = (state = defaultState, action) => {
         ...state,
         isStarted: true
       };
+    case 'SCORE_INCREMENT':
+      return {
+        ...state,
+        score: state.score + 1
+      }
+    case 'LIVES_DECREMENT':
+      return {
+        ...state,
+        lives: state.lives - 1
+      }
     default:
       return state;
   }
