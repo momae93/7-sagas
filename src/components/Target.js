@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Target = ({ x = 0, y = 0, value = 0, onClick = () => {} }) => (
+const Target = ({ x = 0, y = 0, value = 0, backgroundColor, onClick = () => {} }) => (
   <div
     style={{
       position: 'absolute',
@@ -11,7 +11,7 @@ const Target = ({ x = 0, y = 0, value = 0, onClick = () => {} }) => (
       textAlign: 'center',
       lineHeight: '25px',
       cursor: 'pointer',
-      backgroundColor: '#FFD065'
+      backgroundColor: backgroundColor
     }}
     onClick={onClick}
   >

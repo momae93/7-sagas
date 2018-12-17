@@ -3,13 +3,16 @@ const defaultTargetState = {
   lastId: 0
 }
 
+const targetBackground = ["#CD6155", "#EC7063", "#DC7633", "#F5B041", "#F4D03F", "#58D68D", "#52BE80"];
+
 function target(state = defaultTargetState, action) {
   switch (action.type) {
 
     case 'DECREMENT_TARGET':
       return {
         ...state,
-        value: state.value - 1
+        value: state.value - 1,
+        backgroundColor: targetBackground[state.value - 1]
       }
 
     default:
@@ -20,8 +23,11 @@ function target(state = defaultTargetState, action) {
 const targets = (state = defaultTargetState, action) => {
   switch (action.type) {
     case 'ADD_TARGET':
+      const x = getRandomArbitrary(20, 100);
+      const y = getRandomArbitrary(20, 100);
+      const value = getRandomArbitrary(4, 6);
       return {
-        list: [...state.list, { id: action.id, x: getRandomArbitrary(20, 100), y: getRandomArbitrary(20, 100), value: getRandomArbitrary(2, 5) }],
+        list: [...state.list, { id: action.id, x, y, value, backgroundColor: targetBackground[value] }],
         lastId: state.lastId + 1
       }
     case 'DECREMENT_TARGET':
