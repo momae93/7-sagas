@@ -4,7 +4,6 @@ import Target from '../components/Target';
 import Info from '../components/Info';
 import ButtonStart from '../components/ButtonStart';
 
-// FIXME: maybe, do something about this ?
 const mapStateToProps = state => ({
   lives: state.game.lives,
   score: state.game.score,
@@ -35,7 +34,7 @@ const GameLayout = ({ isStarted, lives, score, list, dispatch }) => (
         <Info lives={lives} score={score} />
         {
           list.map(target => (
-            <Target x={target.x} y={target.y} value={target.value} onClick={() => dispatch({ type: 'TARGET_DELETE_REQUESTED', id: target.id})} />
+            <Target x={target.x} y={target.y} value={target.value} backgroundColor={target.backgroundColor} onClick={() => dispatch({ type: 'TARGET_DELETE_REQUESTED', id: target.id})} />
           ))
         }
       </React.Fragment>
