@@ -21,7 +21,7 @@ const targets = (state = defaultTargetState, action) => {
   switch (action.type) {
     case 'ADD_TARGET':
       return {
-        list: [...state.list, { id: action.id, x: getRandomArbitrary(0, 100), y: getRandomArbitrary(0, 100), value: getRandomArbitrary(2, 5) }],
+        list: [...state.list, { id: action.id, x: getRandomArbitrary(20, 100), y: getRandomArbitrary(20, 100), value: getRandomArbitrary(2, 5) }],
         lastId: state.lastId + 1
       }
     case 'DECREMENT_TARGET':
