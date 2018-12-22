@@ -1,7 +1,7 @@
 import { call, put, takeEvery, select } from 'redux-saga/effects'
 import { delay } from 'redux-saga';
 
-//#region 
+//#region Handlers
 
 function *handleDecrement(action){
     const list = yield select(state => state.targets.list);
@@ -12,7 +12,7 @@ function *handleDecrement(action){
 
     const target = list.find(x => x.id === action.id);
 
-    if (target != undefined){
+    if (target !== undefined){
         if (target.value !== 0){
             yield call(delay, TIME_INTERVAL);
             yield put({type: 'DECREMENT_TARGET', id: action.id});

@@ -13,9 +13,9 @@ const mapStateToProps = state => ({
   list: state.targets.list
 }); 
 
-const mapDispatchToProps = dispatch => ({
-  deleteTarget: (id) => { dispatch('TARGET_DELETE_REQUESTED', id) }
-})
+// const mapDispatchToProps = dispatch => ({
+//   deleteTarget: (id) => { dispatch('TARGET_DELETE_REQUESTED', id) }
+// })
 
 const GameLayout = ({ isStarted, lives, score, list, dispatch }) => (
   <div
@@ -44,7 +44,7 @@ const GameLayout = ({ isStarted, lives, score, list, dispatch }) => (
     ) :
     (
         <React.Fragment>
-          <LevelBar></LevelBar>
+          <LevelBar/>
           <ButtonStart onClick={() => dispatch({ type: 'GAME_START_REQUESTED' })} />
         </React.Fragment>
       )}

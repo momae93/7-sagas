@@ -1,9 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Target from '../components/Target';
-import Info from '../components/Info';
-import ButtonStart from '../components/ButtonStart';
-import ButtonStop from '../components/ButtonStop';
 
 const mapStateToProps = state => ({
   levelList: state.game.levelList
@@ -12,12 +8,8 @@ const mapStateToProps = state => ({
 const LevelBar = ({ levelList, dispatch }) => (
   <div
     style={{
-      position: 'fixed',
+      position: 'relative',
       backgroundColor: '#21222C',
-      top: 0,
-      bottom: 0,
-      left: 0,
-      right: 0,
       width: '100vw',
       height: '100vh',
       margin: 'auto'

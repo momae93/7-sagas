@@ -2,6 +2,7 @@ const defaultState = {
   lives: 3,
   score: 0,
   isStarted: false,
+  
   levelList: [{
     id: 1,
     text: 'EASY',
@@ -40,7 +41,7 @@ const game = (state = defaultState, action) => {
     case 'GAME_RESTART':
       return defaultState;
     case 'GAME_SELECT_LEVEL':
-      const levelList = state.levelList.map(lvl => action.id === lvl.id ? {...lvl, isSelected: true } : {...lvl, isSelected: false})
+      const levelList = state.levelList.map(level => action.id === level.id ? {...level, isSelected: true } : {...level, isSelected: false})
       return {
         ...state,
         levelList     

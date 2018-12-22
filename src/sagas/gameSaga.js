@@ -1,4 +1,4 @@
-import { call, put, select, takeEvery } from 'redux-saga/effects'
+import { call, put, takeEvery } from 'redux-saga/effects'
 import { delay } from 'redux-saga';
 
 const SPAWN_TIME = 1000;
