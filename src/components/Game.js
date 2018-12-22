@@ -4,14 +4,13 @@ import Target from '../components/Target';
 import Info from '../components/Info';
 import ButtonStart from '../components/ButtonStart';
 import ButtonStop from '../components/ButtonStop';
-import LevelBar from '../components/LevelBar';
 
 const mapStateToProps = state => ({
   lives: state.game.lives,
   score: state.game.score,
   isStarted: state.game.isStarted,
   list: state.targets.list
-}); 
+});
 
 const mapDispatchToProps = dispatch => ({
   deleteTarget: (id) => { dispatch('TARGET_DELETE_REQUESTED', id) }
@@ -42,11 +41,8 @@ const GameLayout = ({ isStarted, lives, score, list, dispatch }) => (
         }
       </React.Fragment>
     ) :
-    (
-        <React.Fragment>
-          <LevelBar></LevelBar>
-          <ButtonStart onClick={() => dispatch({ type: 'GAME_START_REQUESTED' })} />
-        </React.Fragment>
+      (
+        <ButtonStart onClick={() => dispatch({ type: 'GAME_START_REQUESTED' })} />
       )}
   </div>
 );

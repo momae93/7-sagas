@@ -22,6 +22,8 @@ function target(state = defaultTargetState, action) {
 
 const targets = (state = defaultTargetState, action) => {
   switch (action.type) {
+    case 'TARGETS_RESTART':
+      return defaultTargetState;
     case 'ADD_TARGET':
       const x = getRandomArbitrary(20, 100);
       const y = getRandomArbitrary(20, 100);

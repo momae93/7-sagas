@@ -2,6 +2,22 @@ const defaultState = {
   lives: 3,
   score: 0,
   isStarted: false,
+  levelList: [{
+    id: 1,
+    text: 'EASY',
+    decrementTime: 2000,
+    isSelected: false
+  },{
+    id: 2,
+    text: 'MEDIUM',
+    decrementTime: 1000,
+    isSelected: true
+  },{
+    id: 3,
+    text: 'HARD',
+    decrementTime: 850,
+    isSelected: false
+  }],
   spawnNumber: 1
 };
 
@@ -21,6 +37,14 @@ const game = (state = defaultState, action) => {
         ...state,
         isStarted: true
       };
+    case 'GAME_RESTART':
+      return defaultState;
+    case 'GAME_SELECT_LEVEL':
+      const levelList = state.levelList.map(lvl => action.id === lvl.id ? {...lvl, isSelected: true } : {...lvl, isSelected: false})
+      return {
+        ...state,
+        levelList     
+      }
     case 'SCORE_INCREMENT':
       return {
         ...state,
