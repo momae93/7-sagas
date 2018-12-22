@@ -3,11 +3,13 @@ import { delay } from 'redux-saga';
 
 //#region Handlers
 
+const DEFAULT_TIME_INTERVAL = 1000;
+
 function *handleDecrement(action){
     const list = yield select(state => state.targets.list);
     const TIME_INTERVAL = yield select(state => {
         const level = state.game.levelList.find(l => l.isSelected);
-        return level === undefined ? 1000 : level.decrementTime; 
+        return level === undefined ? DEFAULT_TIME_INTERVAL : level.decrementTime; 
     });
 
     const target = list.find(x => x.id === action.id);
