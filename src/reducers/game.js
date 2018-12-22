@@ -2,7 +2,7 @@ const defaultState = {
   lives: 3,
   score: 0,
   isStarted: false,
-  
+
   levelList: [{
     id: 1,
     text: 'EASY',
@@ -53,9 +53,10 @@ const game = (state = defaultState, action) => {
         spawnNumber: computeSpawn(state.score)
       }
     case 'LIVES_DECREMENT':
+      
       return {
         ...state,
-        lives: state.lives - 1
+        lives: state.lives > 0 ? state.lives - 1 : state.lives
       }
     default:
       return state;

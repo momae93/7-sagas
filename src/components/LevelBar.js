@@ -8,20 +8,22 @@ const mapStateToProps = state => ({
 const LevelBar = ({ levelList, dispatch }) => (
   <div
     style={{
-      position: 'relative',
+      position: 'fixed',
       backgroundColor: '#21222C',
+      marginTop:'20px',
+      marginLeft:'20px',
       width: '100vw',
       height: '100vh',
-      margin: 'auto'
     }}
   >
     <React.Fragment>
+      <div style={{color:"#FFFFFF", fontSize:"20px"}}>Choose your difficulty level</div>
       {
         levelList.map(level =>
           <div style={{
             color: level.isSelected ? '#4BE072' : '#FFFFFF'
           }} onClick={() => dispatch({ type: 'GAME_SELECT_LEVEL', id: level.id })}>
-            {level.text}
+            - {level.text}
           </div>
         )
       }

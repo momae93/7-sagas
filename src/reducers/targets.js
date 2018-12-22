@@ -26,7 +26,7 @@ const targets = (state = defaultTargetState, action) => {
       return defaultTargetState;
     case 'ADD_TARGET':
       const x = getRandomArbitrary(20, 100);
-      const y = getRandomArbitrary(20, 100);
+      const y = getRandomArbitrary(20, 90);
       const value = getRandomArbitrary(4, 6);
       return {
         list: [...state.list, { id: action.id, x, y, value, backgroundColor: targetBackground[value] }],

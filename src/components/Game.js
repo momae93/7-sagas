@@ -12,10 +12,6 @@ const mapStateToProps = state => ({
   list: state.targets.list
 });
 
-const mapDispatchToProps = dispatch => ({
-  deleteTarget: (id) => { dispatch('TARGET_DELETE_REQUESTED', id) }
-})
-
 const GameLayout = ({ isStarted, lives, score, list, dispatch }) => (
   <div
     style={{
